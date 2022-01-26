@@ -11,8 +11,8 @@ public class DBUtils {
     public static String getValue(String request) {
         var runner = new QueryRunner();
         var value = new String();
-        try (var conn = DriverManager.getConnection(System.getProperty("Url"),
-                System.getProperty("User"), System.getProperty("Password"));) {
+        try (var conn = DriverManager.getConnection(System.getProperty("db.url"),
+                System.getProperty("db.user"), System.getProperty("db.password"));) {
             var result = runner.query(conn, request, new ScalarHandler<>());
             value = String.valueOf(result);
         } catch (SQLException e) {
