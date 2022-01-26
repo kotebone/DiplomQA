@@ -12,6 +12,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static org.openqa.selenium.Keys.CONTROL;
 import static org.openqa.selenium.Keys.DELETE;
 
+
 @Data
 public class PaymentPage {
     private SelenideElement header = $("[class = 'heading heading_size_m heading_theme_alfa-on-white']");
@@ -75,4 +76,4 @@ public class PaymentPage {
     public void inputInvalidError() {
         inputInvalid.shouldBe(visible);
     }
- }
+}

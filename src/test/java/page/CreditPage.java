@@ -14,7 +14,7 @@ import static org.openqa.selenium.Keys.DELETE;
 
 @Data
 public class CreditPage {
-    private SelenideElement header = $("[class = 'heading heading_size_m heading_theme_alfa-on-white']");
+    private SelenideElement header = $(byText("Кредит по данным карты"));
     private SelenideElement payButton = $(byText("Купить"));
     private SelenideElement cardNumberField = $(byText("Номер карты")).parent().$(".input__control");
     private SelenideElement monthField = $(byText("Месяц")).parent().$(".input__control");

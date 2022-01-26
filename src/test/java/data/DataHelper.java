@@ -44,7 +44,7 @@ public class DataHelper {
     public static String expiredMonth(int plusMonths) {
         var month = expiredDate(plusMonths).getMonthValue();
         if (month < 10) {
-            String monthFormat= "0" + Integer.toString(month);
+            String monthFormat = "0" + Integer.toString(month);
             return monthFormat;
         }
         return Integer.toString(month);
