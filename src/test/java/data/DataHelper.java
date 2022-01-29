@@ -36,12 +36,12 @@ public class DataHelper {
                 getRandomName(), getRandomCVV());
     }
 
-    public static LocalDate expiredDate(int plusMonth) {
+    private static LocalDate expiredDate(int plusMonth) {
         var expiredDate = LocalDate.now().plusMonths(plusMonth);
         return expiredDate;
     }
 
-    public static String expiredMonth(int plusMonths) {
+    private static String expiredMonth(int plusMonths) {
         var month = expiredDate(plusMonths).getMonthValue();
         if (month < 10) {
             String monthFormat = "0" + Integer.toString(month);
@@ -56,18 +56,18 @@ public class DataHelper {
         return plusMonth;
     }
 
-    public static String expiredYear(int plusMonth) {
+    private static String expiredYear(int plusMonth) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy");
         var year = expiredDate(plusMonth).format(formatter);
         return year;
     }
 
-    public static String getRandomName(){
+    private static String getRandomName(){
         String name = fakerEn.name().fullName();
         return name;
     }
 
-    public static String getRandomCVV() {
+    private static String getRandomCVV() {
         String cvv = fakerEn.numerify("###");
         return cvv;
     }
