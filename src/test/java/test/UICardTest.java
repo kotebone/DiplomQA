@@ -21,7 +21,7 @@ public class UICardTest {
 
     @BeforeEach
     void browserSetUp() {
-        open("http://localhost:8080/");
+        open(System.getProperty("sut.url"));
         offerTourPage = new OfferTourPage();
     }
 

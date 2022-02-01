@@ -1,24 +1,17 @@
 package test;
 
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.WebDriverConditions;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import data.DBUtils;
 import data.DataHelper;
-import io.github.bonigarcia.wdm.webdriver.WebDriverBrowser;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.WebDriver;
 import page.OfferTourPage;
-
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
 import static com.codeborne.selenide.Selenide.closeWindow;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class DBTest {
+public class DBCardTest {
     OfferTourPage offerTourPage;
 
     @BeforeAll
@@ -29,7 +22,7 @@ public class DBTest {
 
     @BeforeEach
     void browserSetUp() {
-        open("http://localhost:8080/");
+        open(System.getProperty("sut.url"));
         offerTourPage = new OfferTourPage();
     }
 
