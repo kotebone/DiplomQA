@@ -15,8 +15,8 @@ jobs:
         run: docker-compose up -d --build
       - name: run SUT
         run: java -Dspring.datasource.url=jdbc:postgresql://localhost:5432/db -jar artifacts/aqa-shop.jar &
-      - name: run tests
-        run: ./gradlew test -Ddb.url=jdbc:postgresql://localhost:5432/db allureReport --info -Dselenide.headless=true
       - name: Sleep for 30 seconds
         run: sleep 30s
         shell: bash
+      - name: run tests
+        run: ./gradlew test -Ddb.url=jdbc:postgresql://localhost:5432/db allureReport --info -Dselenide.headless=true
