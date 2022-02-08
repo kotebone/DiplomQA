@@ -184,14 +184,6 @@ public class UICreditTest {
     }
 
     @Test
-    @DisplayName("Не разрешать ввод латиницы в поле 'Номер карты' на странице оплаты")
-    void shouldNotAllowEnSymbolsInCardNumberPayByCardTest() {
-        var paymentPage = offerTourPage.payByCard();
-        paymentPage.getCardNumberField().setValue(DataHelper.getRandomEnSymbols());
-        assertEquals("", paymentPage.getCardNumberField().getValue());
-    }
-
-    @Test
     @DisplayName("Не разрешать ввод латиницы в поле 'Номер карты' на странице оформления кредита")
     void shouldNotAllowEnSymbolsInCardNumberPayByCreditTest() {
         var creditPage = offerTourPage.payByCredit();
@@ -301,5 +293,12 @@ public class UICreditTest {
         var creditPage = offerTourPage.payByCredit();
         creditPage.getCvvNumberField().setValue("!@#$%^&*()_+-~|");
         assertEquals("", creditPage.getCvvNumberField().getValue());
+    }
+
+    @Test
+    @DisplayName("Успешное переключение со страницы оформления кредита на страницу оплаты")
+    void shouldSwitchFromPayByCreditToPayByCardTest() {
+        var creditPage = offerTourPage.payByCredit();
+        var paymentPage = creditPage.payByCard();
     }
 }

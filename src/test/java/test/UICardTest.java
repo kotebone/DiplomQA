@@ -54,13 +54,6 @@ public class UICardTest {
     }
 
     @Test
-    @DisplayName("Успешное переключение со страницы оформления кредита на страницу оплаты")
-    void shouldSwitchFromPayByCreditToPayByCardTest() {
-        var creditPage = offerTourPage.payByCredit();
-        var paymentPage = creditPage.payByCard();
-    }
-
-    @Test
     @DisplayName("Отправить корректно заполненную форму и одобрить операцию по активной карте со сроком истечения 1 месяц")
     void shouldSuccessCorrectFormAndOkDateCardPayByCard4Test() {
         var paymentPage = offerTourPage.payByCard();
@@ -194,9 +187,9 @@ public class UICardTest {
     @Test
     @DisplayName("Не разрешать ввод спецсимволов в поле 'Номер карты' на странице оплаты")
     void shouldNotAllowSpecialSymbolsInCardNumberPayByCardTest() {
-        var creditPage = offerTourPage.payByCredit();
-        creditPage.getCardNumberField().setValue("!@#$%^&*()_+-~|");
-        assertEquals("", creditPage.getCardNumberField().getValue());
+        var paymentPage = offerTourPage.payByCard();
+        paymentPage.getCardNumberField().setValue("!@#$%^&*()_+-~|");
+        assertEquals("", paymentPage.getCardNumberField().getValue());
     }
 
     @Test
@@ -221,6 +214,14 @@ public class UICardTest {
         var paymentPage = offerTourPage.payByCard();
         paymentPage.getMonthField().setValue("!@#$%^&*()_+-~|");
         assertEquals("", paymentPage.getMonthField().getValue());
+    }
+
+    @Test
+    @DisplayName("Не разрешать ввод латиницы в поле 'Номер карты' на странице оплаты")
+    void shouldNotAllowEnSymbolsInCardNumberPayByCardTest() {
+        var paymentPage = offerTourPage.payByCard();
+        paymentPage.getCardNumberField().setValue(DataHelper.getRandomEnSymbols());
+        assertEquals("", paymentPage.getCardNumberField().getValue());
     }
 
     @Test
