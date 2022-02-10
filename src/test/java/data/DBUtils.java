@@ -12,7 +12,7 @@ public class DBUtils {
         var runner = new QueryRunner();
         var value = new String();
         try (var conn = DriverManager.getConnection(System.getProperty("db.url"),
-                System.getProperty("db.user"), System.getProperty("db.password"));) {
+                System.getProperty("db.user"), System.getProperty("db.password"))) {
             var result = runner.query(conn, request, new ScalarHandler<>());
             value = String.valueOf(result);
         } catch (SQLException e) {

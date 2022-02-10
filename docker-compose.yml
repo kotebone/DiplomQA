@@ -14,6 +14,8 @@ services:
 
   postgres:
     image: postgres:12-alpine
+    volumes:
+      - ./data:/var/lib/postgresql
     ports:
       - '5432:5432'
     environment:
@@ -23,6 +25,5 @@ services:
 
   node-app:
     build: ./gate-simulator
-    image: node-app:1.0
     ports:
       - '9999:9999'
