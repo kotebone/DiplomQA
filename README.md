@@ -3,10 +3,11 @@
 ### Инструкция по запуску приложения и тестов:
 
 1. Склонировать репозиторий https://github.com/kotebone/DiplomQA.git
-2. Запустить  базы данных командой в терминале docker-compose up -d
+2. Запустить  базы данных командой в терминале **docker-compose up -d**
 3. Запустить приложение в терминале командой:
-через PostgreSQL - java -Dspring/datasource/url=jdbc:postgresql://localhost:5432/db -jar artifacts/aqa-shop.jar
-через MySQL - java -Dspring/datasource/url=jdbc:mysql://localhost:3306/db -jar artifacts/aqa-shop.jar
-4. Запустить тесты 
-5. Открыть отчеты о проведенных тестах командой в терминале gradlew allureServe
-6. Свернуть Docker-контейнеры в терминале командой docker-compose down
+для PostgreSQL - **java -Dspring/datasource/url=jdbc:postgresql://localhost:5432/db -jar artifacts/aqa-shop.jar**
+для MySQL - **java -Dspring/datasource/url=jdbc:mysql://localhost:3306/db -jar artifacts/aqa-shop.jar**
+4. Запустить тесты командой в терминале **gradlew clean test**
+5. Сгенерировать отчеты о тестировании командой в терминале **gradlew allureReport**
+6. Открыть отчеты о проведенных тестах командой в терминале **gradlew allureServe**
+7. Свернуть Docker-контейнеры в терминале командой **docker-compose down**

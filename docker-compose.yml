@@ -15,14 +15,22 @@ services:
   postgres:
     image: postgres:12-alpine
     volumes:
+<<<<<<< HEAD
       - ./data2:/var/lib/postgresql
+=======
+      - ./data:/var/lib/postgresql
+>>>>>>> 6ca9c7ea9643cde118df523c2040d59f01636dcc
     ports:
       - '5432:5432'
     restart: always
     environment:
       - POSTGRES_USER=app
       - POSTGRES_PASSWORD=pass
+<<<<<<< HEAD
       - POSTGRES_DB=app
+=======
+      - POSTGRES_DB=app   
+>>>>>>> 6ca9c7ea9643cde118df523c2040d59f01636dcc
   node-app:
     build: ./gate-simulator
     image: node-app:1.0
