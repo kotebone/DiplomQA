@@ -22,7 +22,6 @@ services:
     environment:
       - POSTGRES_USER=app
       - POSTGRES_PASSWORD=pass
-      - POSTGRES_DB=app
       - POSTGRES_DB=app   
   node-app:
     build: ./gate-simulator
