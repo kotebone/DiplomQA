@@ -76,4 +76,8 @@ public class PaymentPage {
     public void inputInvalidError() {
         inputInvalid.shouldBe(visible);
     }
+
+    public void anyNotification() {
+        anyNotification.shouldBe(visible, Duration.ofSeconds(15));
+    }
 }
