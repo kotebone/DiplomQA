@@ -7,8 +7,6 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import page.OfferTourPage;
 
-import java.util.concurrent.TimeUnit;
-
 import static com.codeborne.selenide.Selenide.closeWindow;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -45,7 +43,7 @@ public class DBCreditTest {
         var approvedPayment = DataHelper.approvedPayment(DataHelper.randomPlusMonth());
         creditPage.fillAndSendPaymentInfo(approvedPayment.getCardNumber(), approvedPayment.getMonth(),
                 approvedPayment.getYear(), approvedPayment.getCardHolder(), approvedPayment.getCvv());
-        creditPage.getAnyNotification();
+        creditPage.anyNotification();
         assertEquals("APPROVED", DBUtils.getCreditStatus());
     }
 }

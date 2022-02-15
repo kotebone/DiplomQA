@@ -65,7 +65,7 @@ public class DBCardTest {
         var approvedPayment = DataHelper.approvedPayment(DataHelper.randomPlusMonth());
         paymentPage.fillAndSendPaymentInfo(approvedPayment.getCardNumber(), approvedPayment.getMonth(),
                 approvedPayment.getYear(), approvedPayment.getCardHolder(), approvedPayment.getCvv());
-        paymentPage.getAnyNotification();
+        paymentPage.anyNotification();
         assertEquals("null", DBUtils.getCreditId());
     }
 }

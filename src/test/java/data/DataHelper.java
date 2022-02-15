@@ -62,7 +62,7 @@ public class DataHelper {
         return year;
     }
 
-    private static String getRandomName(){
+    private static String getRandomName() {
         String name = fakerEn.name().fullName();
         return name;
     }

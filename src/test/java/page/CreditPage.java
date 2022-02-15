@@ -54,13 +54,13 @@ public class CreditPage {
         nextButton.click();
     }
 
-    public void successfulSendingForm (String card, String month, String year, String name, String cvv) {
+    public void successfulSendingForm(String card, String month, String year, String name, String cvv) {
         fillAndSendPaymentInfo(card, month, year, name, cvv);
         successNotification.shouldBe(visible, Duration.ofSeconds(15)).
                 shouldHave(exactText("Успешно\n" + "Операция одобрена Банком."));
     }
 
-    public void unsuccessfulSendingForm (String card, String month, String year, String name, String cvv) {
+    public void unsuccessfulSendingForm(String card, String month, String year, String name, String cvv) {
         fillAndSendPaymentInfo(card, month, year, name, cvv);
         errorNotification.shouldBe(visible, Duration.ofSeconds(15)).
                 shouldHave(exactText("Ошибка\n" + "Ошибка! Банк отказал в проведении операции."));
