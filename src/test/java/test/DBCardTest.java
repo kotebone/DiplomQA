@@ -43,7 +43,7 @@ public class DBCardTest {
         var approvedPayment = DataHelper.approvedPayment(DataHelper.randomPlusMonth());
         paymentPage.fillAndSendPaymentInfo(approvedPayment.getCardNumber(), approvedPayment.getMonth(),
                 approvedPayment.getYear(), approvedPayment.getCardHolder(), approvedPayment.getCvv());
-        paymentPage.getAnyNotification();
+        paymentPage.anyNotification();
         assertEquals("APPROVED", DBUtils.getPaymentStatus());
     }
 
@@ -54,7 +54,7 @@ public class DBCardTest {
         var declinedPayment = DataHelper.declinedPayment(DataHelper.randomPlusMonth());
         paymentPage.fillAndSendPaymentInfo(declinedPayment.getCardNumber(), declinedPayment.getMonth(),
                 declinedPayment.getYear(), declinedPayment.getCardHolder(), declinedPayment.getCvv());
-        paymentPage.getAnyNotification();
+        paymentPage.anyNotification();
         assertEquals("DECLINED", DBUtils.getPaymentStatus());
     }
 
